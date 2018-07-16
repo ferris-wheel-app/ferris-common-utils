@@ -2,7 +2,7 @@ name := "ferris-common-utils"
 
 organization := "com.ferris"
 
-version := "0.0.1"
+version := "0.0.3"
 
 scalaVersion := "2.12.1"
 
@@ -12,7 +12,7 @@ libraryDependencies ++= {
   val scalaTestV                  = "3.0.1"
   val mockitoV                    = "1.10.19"
   Seq(
-    "org.scalatest" %% "scalatest"   % scalaTestV % Test,
-    "org.mockito"   %  "mockito-all" % mockitoV   % Test
+    "org.scalatest" %% "scalatest"   % scalaTestV,
+    "org.mockito"   %  "mockito-all" % mockitoV
   )
 }
