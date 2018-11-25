@@ -17,6 +17,7 @@ object FerrisImplicits {
   }
 
   implicit class LocalTimeOps(time: LocalTime) {
+    def toLong: Long = time.toNanoOfDay / 1000000L // milliseconds
     def toSqlTime: Time = Time.valueOf(time)
   }
 
