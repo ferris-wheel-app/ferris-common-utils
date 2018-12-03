@@ -2,7 +2,7 @@ name := "ferris-common-utils"
 
 organization := "com.ferris"
 
-version := "0.0.5"
+version := "0.0.6"
 
 scalaVersion := "2.12.1"
 
