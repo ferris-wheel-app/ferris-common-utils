@@ -7,9 +7,12 @@ import java.util.UUID
 import scala.language.implicitConversions
 
 object FerrisImplicits {
+  private val CONVERSION = 1000000L
+
   implicit class LocalDateTimeOps(time: LocalDateTime) {
     def toLong: Long = time.atZone(ZoneId.systemDefault()).toInstant.toEpochMilli
     def toTimestamp: Timestamp = new Timestamp(time.toLong)
+    def plusMillis(millis: Long): LocalDateTime = time.plusNanos(millis * CONVERSION)
   }
 
   implicit class LocalDateOps(date: LocalDate) {
@@ -17,8 +20,9 @@ object FerrisImplicits {
   }
 
   implicit class LocalTimeOps(time: LocalTime) {
-    def toLong: Long = time.toNanoOfDay / 1000000L // milliseconds
+    def toLong: Long = time.toNanoOfDay / CONVERSION // milliseconds
     def toSqlTime: Time = Time.valueOf(time)
+    def plusMillis(millis: Long): LocalTime = time.plusNanos(millis * CONVERSION)
   }
 
   implicit def uuid2String(uuid: UUID): String = uuid.toString
